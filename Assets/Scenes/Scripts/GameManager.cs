@@ -84,13 +84,10 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Марсоход умер! Пересчитываем образцы...");
         
-        // Пересчитываем образцы на поле (те, что были в инвентаре, исчезли)
         UpdateTotalSamples();
         
-        // Сбрасываем счётчик доставленных образцов, так как игра начинается заново
         samplesDelivered = 0;
         
-        // Если образцов не осталось — игра окончена
         if (totalSamplesOnField == 0)
         {
             GameOver();

@@ -15,7 +15,6 @@ public class MarsRoverCamera : MonoBehaviour
     
     void LateUpdate()
     {
-        // Если цель не назначена или уничтожена — ищем марсоход
         if (target == null)
         {
             GameObject rover = GameObject.FindGameObjectWithTag("Player");
@@ -26,20 +25,16 @@ public class MarsRoverCamera : MonoBehaviour
             }
             else
             {
-                // Марсохода ещё нет на сцене (например, ещё не создан)
                 return;
             }
         }
         
-        // Расчёт желаемой позиции камеры
         Vector3 desiredPosition = target.position 
                                 - target.forward * distance 
                                 + Vector3.up * height;
         
-        // Плавное движение
         transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
         
-        // Смотрим на марсоход
         transform.LookAt(target.position + lookOffset);
     }
 }

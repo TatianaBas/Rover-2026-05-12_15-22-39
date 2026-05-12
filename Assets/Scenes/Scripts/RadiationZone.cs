@@ -4,7 +4,7 @@ public class RadiationZone : MonoBehaviour
 {
     [Header("Damage")]
     public float damagePerSecond = 20f;
-    public float damageInterval = 0.5f;   // как часто наносить урон
+    public float damageInterval = 0.5f;   
     
     [Header("Audio")]
     public AudioClip zoneEnterSound;

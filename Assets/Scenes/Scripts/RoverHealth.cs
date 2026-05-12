@@ -8,8 +8,8 @@ public class RoverHealth : MonoBehaviour
     private float currentHealth;
     
     [Header("UI")]
-    public Slider healthSlider;          // полоска здоровья
-    public Image damageOverlay;          // красный экран (опционально)
+    public Slider healthSlider;         
+    public Image damageOverlay;       
     
     [Header("Audio")]
     public AudioClip damageSound;
@@ -43,7 +43,7 @@ public class RoverHealth : MonoBehaviour
     
     public void TakeDamage(float amount)
     {
-        if (isShielded) return;  // щит блокирует урон
+        if (isShielded) return; 
         
         currentHealth -= amount;
         
@@ -70,14 +70,12 @@ public class RoverHealth : MonoBehaviour
     {
         Debug.Log("Марсоход уничтожен радиацией! Возрождение...");
         
-        // Сброс очков и инвентаря (образцы теряются)
         RoverInventory inventory = GetComponent<RoverInventory>();
         if (inventory != null)
         {
             inventory.ResetAfterDeath();
         }
         
-        // Перемещение на спавн (через GameManager)
         if (GameManager.Instance != null && GameManager.Instance.spawnPoint != null)
         {
             transform.position = GameManager.Instance.spawnPoint.position;
