@@ -27,7 +27,6 @@ public class ShieldController : MonoBehaviour
     {
         if (GameManager.Instance == null || !GameManager.Instance.isGameActive)
             return;
-        // Активация щита по клавише "E" (через новую систему ввода)
         if (Keyboard.current.eKey.wasPressedThisFrame && !isOnCooldown)
         {
             ActivateShield();
